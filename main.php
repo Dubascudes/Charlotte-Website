@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['inputFile'])) {
-    $target_dir = "/upload/";
+    $target_dir = "/";
     $target_file = $target_dir . basename($_FILES["inputFile"]["name"]);
 
     if (move_uploaded_file($_FILES["inputFile"]["tmp_name"], $target_file)) {
