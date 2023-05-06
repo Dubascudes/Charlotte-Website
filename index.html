@@ -2,11 +2,29 @@
 <html>
 <body>
 
-<form action="/upload" method="post" enctype="multipart/form-data">
+<form class = "form" id="myForm">
   Select file to upload (Max size: 1MB):
   <input type="file" name="inputFile" id="inputFile" accept=".txt" required>
   <input type="submit" value="Upload" name="submit">
 </form>
+
+<script>
+  const myForm = document.getElementById("myForm")
+  const inputFile = document.getElementById("inputFile")
+
+  myForm.addEventListener("submit", e => {
+    e.preventDefault();
+
+    const endpoint = "main.php";
+    const formData = new FormData();
+
+    formData.append("inputFile", inputFile.files[0]);
+    fetch(endpoint, {
+      method: "post",
+      body: formData
+    }).catch(console.error);
+  });
+</script>
 
 </body>
 </html>
