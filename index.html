@@ -15,7 +15,7 @@
   myForm.addEventListener("submit", e => {
     e.preventDefault();
 
-    const endpoint = "/netlify/functions/phpfunction.js";
+    const endpoint = "/phpfunction.js";
     const formData = new FormData();
 
     formData.append("inputFile", inputFile.files[0]);
